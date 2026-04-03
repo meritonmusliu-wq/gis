@@ -127,14 +127,15 @@ body {
 }
 
 .header.scrolled .store-btn {
-    color: #1a1a1a;
-    border-color: #1a1a1a;
+    color: #fff;
+    background: #00b695;
+    border-color: #00b695;
 }
 
 .header.scrolled .store-btn:hover {
-    background: #00b695;
+    background: transparent;
+    color: #00b695;
     border-color: #00b695;
-    color: #fff;
 }
 
 /* ── Hamburger ── */
@@ -395,6 +396,7 @@ body {
     background: transparent;
     color: #fff;
     border-color: #fff;
+    transform: translateX(6px);
 }
 
 .hero-btn:hover .hero-btn-arrow {
