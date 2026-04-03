@@ -519,35 +519,71 @@ body {
     background: #fff;
 }
 
+.servizi-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 60px;
+    margin-bottom: 64px;
+}
+
+.servizi-header-left .section-title {
+    margin-bottom: 0;
+}
+
+.servizi-header-right {
+    font-size: 16px;
+    color: #777;
+    line-height: 1.7;
+    max-width: 360px;
+    text-align: right;
+}
+
 .servizi-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 32px;
+    gap: 0;
 }
 
 .servizio-card {
     padding: 40px 32px;
-    border-radius: 12px;
-    background: #fafafa;
-    border: 1px solid #f0f0f0;
+    border-right: 1px solid #eee;
     transition: all 0.35s ease;
+    position: relative;
+}
+
+.servizio-card:last-child {
+    border-right: none;
 }
 
 .servizio-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
-    border-color: transparent;
+    background: #f8fffe;
 }
 
-.servizio-icon {
-    width: 64px;
-    height: 64px;
-    border-radius: 12px;
-    background: rgba(0, 182, 149, 0.08);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.servizio-card:hover .servizio-line {
+    width: 48px;
+    background: #00b695;
+}
+
+.servizio-card:hover .servizio-num {
+    color: #00b695;
+}
+
+.servizio-num {
+    font-size: 48px;
+    font-weight: 800;
+    color: #e8e8e8;
+    line-height: 1;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+.servizio-line {
+    width: 32px;
+    height: 2px;
+    background: #ddd;
     margin-bottom: 24px;
+    transition: all 0.3s ease;
 }
 
 .servizio-card h3 {
@@ -561,6 +597,35 @@ body {
     font-size: 14px;
     color: #777;
     line-height: 1.7;
+}
+
+@media (max-width: 1024px) {
+    .servizi-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    .servizi-header-right {
+        text-align: left;
+    }
+    .servizi-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .servizio-card {
+        border-bottom: 1px solid #eee;
+    }
+    .servizio-card:nth-child(2) {
+        border-right: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .servizi-grid {
+        grid-template-columns: 1fr;
+    }
+    .servizio-card {
+        border-right: none;
+    }
 }
 
 /* ── Servizi Dettaglio ── */
@@ -588,6 +653,15 @@ body {
 
 .dettaglio-intro .hero-btn {
     margin: 0 auto;
+    background: #00b695;
+    color: #fff;
+    border: 2px solid #00b695;
+}
+
+.dettaglio-intro .hero-btn:hover {
+    background: transparent;
+    color: #00b695;
+    border-color: #00b695;
 }
 
 .dettaglio-row {
