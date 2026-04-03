@@ -51,6 +51,54 @@ body {
     filter: none;
 }
 
+/* ── Desktop Nav ── */
+.desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+.desktop-link {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+    position: relative;
+    padding: 4px 0;
+}
+
+.desktop-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #00b695;
+    transition: width 0.3s ease;
+}
+
+.desktop-link:hover::after,
+.desktop-link.active::after {
+    width: 100%;
+}
+
+.desktop-link:hover,
+.desktop-link.active {
+    color: #fff;
+}
+
+.header.scrolled .desktop-link {
+    color: #555;
+}
+
+.header.scrolled .desktop-link:hover,
+.header.scrolled .desktop-link.active {
+    color: #1a1a1a;
+}
+
 /* ── Header Right ── */
 .header-right {
     display: flex;
@@ -91,7 +139,7 @@ body {
 
 /* ── Hamburger ── */
 .hamburger {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: flex-end;
     justify-content: center;
@@ -210,7 +258,13 @@ body {
     color: #00b695;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 950px) {
+    .desktop-nav {
+        display: none;
+    }
+    .hamburger {
+        display: flex;
+    }
     .header-container {
         padding: 0 24px;
     }
@@ -507,6 +561,115 @@ body {
     font-size: 14px;
     color: #777;
     line-height: 1.7;
+}
+
+/* ── Servizi Dettaglio ── */
+.servizi-dettaglio {
+    background: #f7f8fa;
+}
+
+.dettaglio-intro {
+    padding: 120px 0 80px;
+    text-align: center;
+}
+
+.dettaglio-intro .section-tag {
+    padding-left: 0;
+}
+
+.dettaglio-intro .section-tag::before {
+    display: none;
+}
+
+.dettaglio-intro .section-title {
+    font-size: 48px;
+    margin-bottom: 40px;
+}
+
+.dettaglio-intro .hero-btn {
+    margin: 0 auto;
+}
+
+.dettaglio-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    height: 260px;
+}
+
+.dettaglio-row.row-reverse {
+    direction: rtl;
+}
+
+.dettaglio-row.row-reverse > * {
+    direction: ltr;
+}
+
+.dettaglio-img {
+    position: relative;
+    overflow: hidden;
+    height: 260px;
+}
+
+.dettaglio-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.dettaglio-row:hover .dettaglio-img img {
+    transform: scale(1.03);
+}
+
+.dettaglio-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 32px 40px;
+    background: #fff;
+}
+
+.dettaglio-row.row-reverse .dettaglio-text {
+    background: #f7f8fa;
+}
+
+.dettaglio-text h3 {
+    font-size: 24px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.dettaglio-text p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.7;
+    max-width: 380px;
+}
+
+@media (max-width: 768px) {
+    .dettaglio-row {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+    .dettaglio-row.row-reverse {
+        direction: ltr;
+    }
+    .dettaglio-img {
+        height: 300px;
+    }
+    .dettaglio-text {
+        padding: 40px 32px;
+    }
+    .dettaglio-text h3 {
+        font-size: 28px;
+    }
+    .dettaglio-intro .section-title {
+        font-size: 32px;
+    }
 }
 
 /* ── Chi Siamo ── */
