@@ -1,84 +1,66 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.getElementById('hamburger');
-    const nav = document.getElementById('nav');
-
-    const overlay = document.createElement('div');
-    overlay.className = 'overlay';
-    document.body.appendChild(overlay);
+    const toggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('navMobile');
+    const overlay = document.getElementById('menuOverlay');
 
     function toggleMenu() {
-        hamburger.classList.toggle('active');
+        toggle.classList.toggle('active');
         nav.classList.toggle('open');
         overlay.classList.toggle('show');
         document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
     }
 
-    hamburger.addEventListener('click', toggleMenu);
+    toggle.addEventListener('click', toggleMenu);
     overlay.addEventListener('click', toggleMenu);
 
-    // Header scroll effect
-    const header = document.querySelector('.header');
-    window.addEventListener('scroll', () => {
-        header.classList.toggle('scrolled', window.scrollY > 50);
-    });
-
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
+    document.querySelectorAll('.nav-mobile__link').forEach(a => {
+        a.addEventListener('click', () => {
             if (nav.classList.contains('open')) toggleMenu();
         });
+    });
+
+    // Header scroll
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 60);
     });
 
     // Hero Slider
     const slides = document.querySelectorAll('.hero-slide');
     const dots = document.querySelectorAll('.dot');
-    let currentSlide = 0;
-    let slideInterval;
+    const counter = document.getElementById('heroCurrentNum');
+    let cur = 0, timer;
 
-    const heroCounter = document.getElementById('heroCurrentNum');
-
-    function goToSlide(index) {
-        slides[currentSlide].classList.remove('active');
-        dots[currentSlide].classList.remove('active');
-        currentSlide = index;
-        slides[currentSlide].classList.add('active');
-        dots[currentSlide].classList.add('active');
-        heroCounter.textContent = String(currentSlide + 1).padStart(2, '0');
+    function goTo(i) {
+        slides[cur].classList.remove('active');
+        dots[cur].classList.remove('active');
+        cur = i;
+        slides[cur].classList.add('active');
+        dots[cur].classList.add('active');
+        counter.textContent = String(cur + 1).padStart(2, '0');
     }
 
-    function nextSlide() {
-        goToSlide((currentSlide + 1) % slides.length);
-    }
+    function start() { timer = setInterval(() => goTo((cur + 1) % slides.length), 5000); }
 
-    function startSlider() {
-        slideInterval = setInterval(nextSlide, 5000);
-    }
+    dots.forEach(d => d.addEventListener('click', () => {
+        clearInterval(timer);
+        goTo(+d.dataset.index);
+        start();
+    }));
 
-    dots.forEach(dot => {
-        dot.addEventListener('click', () => {
-            clearInterval(slideInterval);
-            goToSlide(parseInt(dot.dataset.index));
-            startSlider();
-        });
-    });
+    start();
 
-    startSlider();
+    // Cookie
+    const cookie = document.getElementById('cookieBanner');
+    if (localStorage.getItem('cookieConsent')) cookie.classList.add('hidden');
 
-    // Cookie Banner
-    const cookieBanner = document.getElementById('cookieBanner');
-    const cookieAccept = document.getElementById('cookieAccept');
-    const cookieReject = document.getElementById('cookieReject');
-
-    if (localStorage.getItem('cookieConsent')) {
-        cookieBanner.classList.add('hidden');
-    }
-
-    cookieAccept.addEventListener('click', () => {
+    document.getElementById('cookieAccept').addEventListener('click', () => {
         localStorage.setItem('cookieConsent', 'accepted');
-        cookieBanner.classList.add('hidden');
+        cookie.classList.add('hidden');
     });
 
-    cookieReject.addEventListener('click', () => {
+    document.getElementById('cookieReject').addEventListener('click', () => {
         localStorage.setItem('cookieConsent', 'rejected');
-        cookieBanner.classList.add('hidden');
+        cookie.classList.add('hidden');
     });
 });

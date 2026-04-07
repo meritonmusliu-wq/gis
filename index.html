@@ -6,137 +6,221 @@
     <title>GIS - Centro Fresaggio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <header class="header">
-        <div class="header-container">
-            <a href="index.html" class="logo">
-                <img src="images/logo.png" alt="GIS Centro Fresaggio">
-            </a>
-            <nav class="desktop-nav">
-                <a href="#home" class="desktop-link active">Home</a>
-                <a href="#servizi" class="desktop-link">I nostri servizi</a>
-                <a href="#chi-siamo" class="desktop-link">Chi siamo</a>
-                <a href="#contatti" class="desktop-link">Contatti</a>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo"><img src="images/logo.png" alt="GIS"></a>
+            <nav class="nav-desktop">
+                <a href="#home">Home</a>
+                <a href="#servizi">I nostri servizi</a>
+                <a href="#chi-siamo">Chi siamo</a>
+                <a href="#contatti">Contatti</a>
             </nav>
-            <div class="header-right">
-                <a href="#contatti" class="store-btn">STORE GIS</a>
-                <button class="hamburger" id="hamburger" aria-label="Menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Mobile Menu -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <nav class="nav-mobile" id="navMobile">
+        <a href="#home" class="nav-mobile__link">Home</a>
+        <a href="#servizi" class="nav-mobile__link">I nostri servizi</a>
+        <a href="#chi-siamo" class="nav-mobile__link">Chi siamo</a>
+        <a href="#contatti" class="nav-mobile__link">Contatti</a>
+    </nav>
+
+    <!-- Hero -->
     <section class="hero" id="home">
         <div class="hero-slider" id="heroSlider">
-            <div class="hero-slide active" style="background-image: url('images/hero1.png')">
+            <div class="hero-slide active" style="background-image:url('images/hero1.png')">
                 <div class="hero-overlay"></div>
-                <div class="hero-content">
-                    <span class="hero-tag">Centro Fresaggio</span>
+                <div class="hero-body">
                     <h1>INNOVAZIONE E<br>DIGITALIZZAZIONE</h1>
                     <p>Il tuo partner d'eccellenza per strutture dentali</p>
-                    <a href="#" class="hero-btn">Visita lo store <span class="hero-btn-arrow">&rarr;</span></a>
+                    <a href="#" class="btn-hero"><span>Visita lo store</span></a>
                 </div>
             </div>
-            <div class="hero-slide" style="background-image: url('images/hero2.png')">
+            <div class="hero-slide" style="background-image:url('images/hero2.png')">
                 <div class="hero-overlay"></div>
-                <div class="hero-content">
-                    <span class="hero-tag">Design Digitale</span>
+                <div class="hero-body">
                     <h1>PROGETTAZIONE<br>CAD/CAM</h1>
                     <p>Design digitale di precisione per ogni restauro</p>
-                    <a href="#" class="hero-btn">Visita lo store <span class="hero-btn-arrow">&rarr;</span></a>
+                    <a href="#" class="btn-hero"><span>Visita lo store</span></a>
                 </div>
             </div>
-            <div class="hero-slide" style="background-image: url('images/hero3.png')">
+            <div class="hero-slide" style="background-image:url('images/hero3.png')">
                 <div class="hero-overlay"></div>
-                <div class="hero-content">
-                    <span class="hero-tag">Eccellenza Artigianale</span>
+                <div class="hero-body">
                     <h1>ARTIGIANATO<br>E QUALITÀ</h1>
                     <p>Tradizione e tecnologia al servizio del sorriso</p>
-                    <a href="#" class="hero-btn">Visita lo store <span class="hero-btn-arrow">&rarr;</span></a>
+                    <a href="#" class="btn-hero"><span>Visita lo store</span></a>
                 </div>
             </div>
-            <div class="hero-slide" style="background-image: url('images/hero4.png')">
+            <div class="hero-slide" style="background-image:url('images/hero4.png')">
                 <div class="hero-overlay"></div>
-                <div class="hero-content">
-                    <span class="hero-tag">Tecnologia Avanzata</span>
+                <div class="hero-body">
                     <h1>SCANSIONE<br>3D AVANZATA</h1>
                     <p>Precisione assoluta nella digitalizzazione dei modelli</p>
-                    <a href="#" class="hero-btn">Visita lo store <span class="hero-btn-arrow">&rarr;</span></a>
+                    <a href="#" class="btn-hero"><span>Visita lo store</span></a>
                 </div>
             </div>
         </div>
-        <div class="hero-nav">
-            <div class="hero-dots" id="heroDots">
-                <span class="dot active" data-index="0"></span>
-                <span class="dot" data-index="1"></span>
-                <span class="dot" data-index="2"></span>
-                <span class="dot" data-index="3"></span>
-            </div>
-            <div class="hero-counter">
-                <span id="heroCurrentNum">01</span>
-                <span class="hero-counter-sep"></span>
-                <span class="hero-counter-total">04</span>
+        <div class="hero-dots" id="heroDots">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+            <span class="dot" data-index="3"></span>
+        </div>
+        <div class="hero-count"><span id="heroCurrentNum">01</span>/04</div>
+    </section>
+
+    <!-- Servizi Header -->
+    <section class="s-header" id="servizi">
+        <div class="container">
+            <div class="s-header__top">
+                <div>
+                    <p class="tag">I NOSTRI SERVIZI</p>
+                    <h2>I nostri servizi</h2>
+                </div>
+                <p class="s-header__desc">Soluzioni complete per il laboratorio odontotecnico moderno, dalla progettazione alla consegna finale.</p>
             </div>
         </div>
     </section>
 
-    <!-- Service Intro Section -->
-    <section class="service-intro">
-        <div class="section-container">
-            <div class="service-intro-grid">
-                <div class="service-intro-image">
-                    <img src="images/3d-service.png" alt="Protesi dentali in Laser Melting">
+    <!-- Service Cards (3 col like thelab) -->
+    <section class="s-cards">
+        <div class="container">
+            <div class="s-cards__grid">
+                <div class="s-card">
+                    <div class="s-card__icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <h3>Fresaggio CAD/CAM</h3>
+                    <div class="s-card__line"></div>
+                    <p>Fresaggio di precisione con macchinari di ultima generazione per zirconia, PMMA, cera e metallo.</p>
                 </div>
-                <div class="service-intro-text">
-                    <span class="section-tag">Service</span>
-                    <h2 class="section-title">Diamo forma alla tua creatività</h2>
-                    <p>Realizziamo manufatti e protesi dentali in Laser Melting, Fresatura e Stampa 3D e li consegniamo al tuo laboratorio</p>
-                    <a href="#" class="service-intro-btn">COME INVIARE IL TUO LAVORO</a>
+                <div class="s-card">
+                    <div class="s-card__icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                    </div>
+                    <h3>Progettazione digitale</h3>
+                    <div class="s-card__line"></div>
+                    <p>Design CAD avanzato per corone, ponti, intarsi e strutture implantari su misura.</p>
+                </div>
+                <div class="s-card">
+                    <div class="s-card__icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+                    </div>
+                    <h3>Scansione 3D</h3>
+                    <div class="s-card__line"></div>
+                    <p>Digitalizzazione precisa dei modelli con scanner di ultima generazione per risultati impeccabili.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Servizi Section -->
-    <section class="servizi" id="servizi">
-        <div class="section-container">
-            <div class="servizi-header">
-                <div class="servizi-header-left">
-                    <span class="section-tag">Cosa facciamo</span>
-                    <h2 class="section-title">I nostri servizi</h2>
+    <!-- Why Us (grid like thelab "Pse te zgjedhesh") -->
+    <section class="why">
+        <div class="container">
+            <h2 class="why__title">Perché scegliere GIS?</h2>
+            <div class="why__grid">
+                <div class="why__item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    <div>
+                        <h4>Qualità Costante</h4>
+                        <p>Protocolli rigorosi per una qualità costante, ogni volta!</p>
+                    </div>
                 </div>
-                <p class="servizi-header-right">Soluzioni complete per il laboratorio odontotecnico moderno, dalla progettazione alla consegna finale.</p>
+                <div class="why__item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <div>
+                        <h4>Tempi Certi</h4>
+                        <p>L'80% dei nostri lavori viene consegnato prima delle scadenze concordate.</p>
+                    </div>
+                </div>
+                <div class="why__item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    <div>
+                        <h4>Monitoraggio Attivo</h4>
+                        <p>L'intera linea di produzione è digitalizzata, a un clic di distanza.</p>
+                    </div>
+                </div>
+                <div class="why__item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+                    <div>
+                        <h4>Rilavorazione Gratuita</h4>
+                        <p>Ogni errore, ogni rilavorazione è coperta da noi, in ogni caso!</p>
+                    </div>
+                </div>
+                <div class="why__item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    <div>
+                        <h4>Supporto Continuo</h4>
+                        <p>Il nostro team è sempre pronto ad assistervi.</p>
+                    </div>
+                </div>
+                <div class="why__item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                    <div>
+                        <h4>Materiali Premium</h4>
+                        <p>Materiali certificati e maestria nella creazione di protesi dentali.</p>
+                    </div>
+                </div>
             </div>
-            <div class="servizi-grid">
-                <div class="servizio-card">
-                    <div class="servizio-num">01</div>
-                    <div class="servizio-line"></div>
+        </div>
+    </section>
+
+    <!-- Chi Siamo -->
+    <section class="about" id="chi-siamo">
+        <div class="container">
+            <div class="about__grid">
+                <div class="about__text">
+                    <p class="tag">CHI SIAMO</p>
+                    <h2>Affidati a chi fa della qualità una professione</h2>
+                    <p>Supportiamo laboratori odontotecnici con un team di più di 10 persone, esperto in fresaggio digitale e project management. Ogni progetto è seguito in ogni dettaglio, dalla consulenza iniziale fino alla consegna, con soluzioni su misura anche per i casi più complessi.</p>
+                    <p>Tecnologia all'avanguardia, formazione continua e attenzione alla qualità sono la nostra garanzia per risultati rapidi, precisi e affidabili.</p>
+                    <a href="#" class="btn-primary">Scopri chi siamo</a>
+                </div>
+                <div class="about__img">
+                    <img src="images/chi-siamo.png" alt="Il nostro team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works (like thelab "Si funksionon") -->
+    <section class="how">
+        <div class="container">
+            <div class="how__header">
+                <div>
+                    <p class="tag">COME FUNZIONA</p>
+                    <h2>Ecco come realizziamo insieme i tuoi lavori</h2>
+                </div>
+                <p class="how__sub">Dalla tua richiesta al sorriso del paziente. Preciso, veloce, senza sorprese!</p>
+            </div>
+            <div class="how__steps">
+                <div class="how__step">
+                    <div class="how__num">01</div>
+                    <div class="how__line"></div>
                     <h3>Caricamento file</h3>
                     <p>Carica in modo sicuro il tuo file STL, PLY o CAD attraverso il nostro portale</p>
                 </div>
-                <div class="servizio-card">
-                    <div class="servizio-num">02</div>
-                    <div class="servizio-line"></div>
+                <div class="how__step">
+                    <div class="how__num">02</div>
+                    <div class="how__line"></div>
                     <h3>Verifica tecnica</h3>
                     <p>Revisione esperta e ottimizzazione dei tuoi design per risultati ottimali</p>
                 </div>
-                <div class="servizio-card">
-                    <div class="servizio-num">03</div>
-                    <div class="servizio-line"></div>
-                    <h3>Produzione di qualità</h3>
-                    <p>Produzione di precisione con monitoraggio in tempo reale e controllo qualità completo</p>
-                </div>
-                <div class="servizio-card">
-                    <div class="servizio-num">04</div>
-                    <div class="servizio-line"></div>
+                <div class="how__step">
+                    <div class="how__num">03</div>
+                    <div class="how__line"></div>
                     <h3>Spedizione veloce</h3>
                     <p>Consegna espressa con tracciamento completo e documentazione inclusa</p>
                 </div>
@@ -144,127 +228,35 @@
         </div>
     </section>
 
-    <!-- Servizi Dettaglio Section -->
-    <section class="servizi-dettaglio">
-        <div class="dettaglio-intro">
-            <div class="section-container">
-                <span class="section-tag">I nostri servizi</span>
-                <h2 class="section-title">La tua visione<br>La nostra realizzazione</h2>
-                <a href="#" class="hero-btn">Scopri tutti i servizi <span class="hero-btn-arrow">&rarr;</span></a>
-            </div>
-        </div>
-
-        <div class="dettaglio-row">
-            <div class="dettaglio-img">
-                <img src="images/laser-melting.png" alt="Laser melting">
-            </div>
-            <div class="dettaglio-text">
-                <span class="section-tag">Lavorazione</span>
-                <h3>Laser melting</h3>
-                <p>Questa lavorazione innovativa permette di ottenere protesi leggere, durevoli e perfettamente adattabili.</p>
-            </div>
-        </div>
-
-        <div class="dettaglio-row row-reverse">
-            <div class="dettaglio-img">
-                <img src="images/ceramizzazione.png" alt="Ceramizzazione">
-            </div>
-            <div class="dettaglio-text">
-                <span class="section-tag">Finitura</span>
-                <h3>Ceramizzazione</h3>
-                <p>La precisione nella stratificazione assicura armonia cromatica e un'integrazione perfetta con i denti naturali.</p>
-            </div>
-        </div>
-
-        <div class="dettaglio-row">
-            <div class="dettaglio-img">
-                <img src="images/progettazione-cad.png" alt="Progettazione CAD">
-            </div>
-            <div class="dettaglio-text">
-                <span class="section-tag">Design</span>
-                <h3>Progettazione CAD</h3>
-                <p>Questa tecnologia innovativa permette di ottenere soluzioni personalizzate, affidabili e dai dettagli accurati.</p>
-            </div>
-        </div>
-
-        <div class="dettaglio-row row-reverse">
-            <div class="dettaglio-img">
-                <img src="images/fresatura-cam.png" alt="Fresatura di precisione con tecnologia CAM">
-            </div>
-            <div class="dettaglio-text">
-                <span class="section-tag">Produzione</span>
-                <h3>Fresatura di precisione con tecnologia CAM</h3>
-                <p>La tecnologia digitale assicura tempi ridotti, adattamento ottimale e risultati estetici di qualità.</p>
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+        <div class="container">
+            <div class="cta-banner__inner">
+                <div>
+                    <h2>Pronto a iniziare una collaborazione?</h2>
+                    <p>Contattaci per scoprire come possiamo supportare il tuo laboratorio con soluzioni digitali all'avanguardia.</p>
+                </div>
+                <a href="#contatti" class="btn-white">Contattaci</a>
             </div>
         </div>
     </section>
 
-    <!-- Chi Siamo Section -->
-    <section class="chi-siamo" id="chi-siamo">
-        <div class="section-container">
-            <div class="chi-siamo-block">
-                <div class="chi-siamo-image">
-                    <img src="images/chi-siamo.png" alt="Il nostro team">
+    <!-- Location -->
+    <section class="location" id="contatti">
+        <div class="container">
+            <div class="location__card">
+                <div class="location__map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3026.5!2d18.1718!3d40.3515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDIxJzA1LjQiTiAxOMKwMTAnMTguNSJF!5e0!3m2!1sit!2sit!4v1" width="100%" height="100%" style="border:0" allowfullscreen loading="lazy"></iframe>
                 </div>
-                <div class="chi-siamo-text">
-                    <span class="section-tag">Chi siamo</span>
-                    <h2 class="section-title">Affidati a chi fa della qualità una professione</h2>
-                    <p>Supportiamo laboratori odontotecnici con un team di più di 10 persone, esperto in fresaggio digitale e project management. Ogni progetto è seguito in ogni dettaglio, dalla consulenza iniziale fino alla consegna, con soluzioni su misura anche per i casi più complessi.</p>
-                    <p>Tecnologia all'avanguardia, formazione continua e attenzione alla qualità sono la nostra garanzia per risultati rapidi, precisi e affidabili. Affidati a un partner che unisce competenza, trasparenza e supporto costante.</p>
-                    <a href="#" class="chi-siamo-btn">Scopri chi siamo <span>&rarr;</span></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Vantaggi Section -->
-    <section class="vantaggi">
-        <div class="section-container">
-            <div class="vantaggi-grid">
-                <div class="vantaggio">
-                    <div class="vantaggio-icon">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00b695" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                <div class="location__info">
+                    <h2>Vieni a trovarci</h2>
+                    <div class="location__detail">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00b695" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <div><p>Via Bonifacio Bernardino, 36B</p><p>Lecce 73100</p></div>
                     </div>
-                    <h4>Consegna in 24/48 ore</h4>
-                </div>
-                <div class="vantaggio-divider"></div>
-                <div class="vantaggio">
-                    <div class="vantaggio-icon">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00b695" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                    </div>
-                    <h4>Supporto eccellente</h4>
-                </div>
-                <div class="vantaggio-divider"></div>
-                <div class="vantaggio">
-                    <div class="vantaggio-icon">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00b695" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-                    </div>
-                    <h4>Lavori certificati</h4>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Dove Siamo Section -->
-    <section class="dove-siamo" id="contatti">
-        <div class="dove-siamo-wrapper">
-            <div class="dove-siamo-map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3026.5!2d18.1718!3d40.3515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDIxJzA1LjQiTiAxOMKwMTAnMTguNSJF!5e0!3m2!1sit!2sit!4v1" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-            <div class="dove-siamo-info">
-                <h2>Vieni a trovarci</h2>
-                <div class="dove-siamo-detail">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00b695" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    <div>
-                        <p>Via Bonifacio Bernardino, 36B</p>
-                        <p>Lecce 73100</p>
-                    </div>
-                </div>
-                <div class="dove-siamo-detail">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00b695" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                    <div>
-                        <p>9:00 - 18:00</p>
-                        <p>Dal Lunedì al Venerdì</p>
+                    <div class="location__detail">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00b695" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <div><p>9:00 - 18:00</p><p>Dal Lunedì al Venerdì</p></div>
                     </div>
                 </div>
             </div>
@@ -273,55 +265,38 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="section-container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="images/logo.png" alt="GIS Centro Fresaggio">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <img src="images/logo.png" alt="GIS">
                     <p>Il tuo partner d'eccellenza per strutture dentali digitali.</p>
                 </div>
-                <div class="footer-links">
+                <div class="footer__col">
                     <h4>Menu</h4>
                     <a href="#home">Home</a>
                     <a href="#servizi">I nostri servizi</a>
                     <a href="#chi-siamo">Chi siamo</a>
                     <a href="#contatti">Contatti</a>
                 </div>
-                <div class="footer-links">
-                    <h4>Servizi</h4>
-                    <a href="#">Fresaggio CAD/CAM</a>
-                    <a href="#">Progettazione digitale</a>
-                    <a href="#">Scansione 3D</a>
-                    <a href="#">Controllo qualità</a>
+                <div class="footer__col">
+                    <h4>Contatti</h4>
+                    <a href="#">+39 06 1234567</a>
+                    <a href="#">info@gisfresaggio.it</a>
+                    <a href="#">Via Bonifacio Bernardino, 36B</a>
                 </div>
             </div>
-            <div class="footer-bottom">
+            <div class="footer__bar">
                 <p>&copy; 2026 GIS Centro Fresaggio. Tutti i diritti riservati.</p>
             </div>
         </div>
     </footer>
 
-    <nav class="nav" id="nav">
-        <ul class="nav-list">
-            <li><a href="#home" class="nav-link active">Home</a></li>
-            <li><a href="#servizi" class="nav-link">I nostri servizi</a></li>
-            <li><a href="#chi-siamo" class="nav-link">Chi siamo</a></li>
-            <li><a href="#contatti" class="nav-link">Contatti</a></li>
-        </ul>
-    </nav>
-
-    <!-- Cookie Banner -->
-    <div class="cookie-banner" id="cookieBanner">
-        <div class="cookie-content">
-            <div class="cookie-icon">&#x1f36a;</div>
-            <div class="cookie-text">
-                <h3>Utilizziamo i cookie</h3>
-                <p>Questo sito utilizza cookie per migliorare la tua esperienza di navigazione e per analizzare il traffico del sito. Puoi accettare tutti i cookie o personalizzare le tue preferenze.</p>
-                <a href="#" class="cookie-more">Ulteriori informazioni</a>
-            </div>
-            <div class="cookie-actions">
-                <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Accetta tutti</button>
-                <button class="cookie-btn cookie-btn-reject" id="cookieReject">Rifiuta</button>
-            </div>
+    <!-- Cookie -->
+    <div class="cookie" id="cookieBanner">
+        <p>Questo sito utilizza cookie per migliorare la tua esperienza. <a href="#">Ulteriori informazioni</a></p>
+        <div class="cookie__btns">
+            <button id="cookieAccept">Accetta</button>
+            <button id="cookieReject">Rifiuta</button>
         </div>
     </div>
 
