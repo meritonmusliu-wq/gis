@@ -50,6 +50,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     start();
 
+    // FAQ Accordion
+    document.querySelectorAll('.faq__q').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const item = btn.parentElement;
+            const wasOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq__item').forEach(i => i.classList.remove('open'));
+            if (!wasOpen) item.classList.add('open');
+        });
+    });
+
     // Cookie
     const cookie = document.getElementById('cookieBanner');
     if (localStorage.getItem('cookieConsent')) cookie.classList.add('hidden');
