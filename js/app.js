@@ -48,6 +48,18 @@ document.addEventListener('DOMContentLoaded', () => {
         start();
     }));
 
+    document.getElementById('heroPrev').addEventListener('click', () => {
+        clearInterval(timer);
+        goTo((cur - 1 + slides.length) % slides.length);
+        start();
+    });
+
+    document.getElementById('heroNext').addEventListener('click', () => {
+        clearInterval(timer);
+        goTo((cur + 1) % slides.length);
+        start();
+    });
+
     start();
 
     // FAQ Accordion
