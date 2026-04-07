@@ -62,6 +62,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
     start();
 
+    // Scroll Animations
+    const animEls = document.querySelectorAll('.s-header, .s-card, .why__title, .why__item, .about__img, .about__text, .how__header, .how__step, .stats__item, .dual-cta__card, .faq__grid, .location__card, .process-header, .step, .services-intro, .service-row, .intro-grid, .cta-banner__inner');
+
+    animEls.forEach((el, i) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(40px)';
+        el.style.transition = `opacity 0.6s ease ${(i % 4) * 0.1}s, transform 0.6s ease ${(i % 4) * 0.1}s`;
+    });
+
+    const animObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.style.opacity = '1';
+                e.target.style.transform = 'translateY(0)';
+                animObserver.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.08 });
+
+    animEls.forEach(el => animObserver.observe(el));
+
+    // Counter animation for stats
+    const counters = document.querySelectorAll('.stats__num');
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                const el = e.target;
+                const text = el.textContent;
+                const num = parseInt(text.replace(/[^0-9]/g, ''));
+                const suffix = text.replace(/[0-9.,]/g, '');
+                const hasDot = text.includes('.');
+                let current = 0;
+                const step = Math.ceil(num / 40);
+                const interval = setInterval(() => {
+                    current += step;
+                    if (current >= num) {
+                        current = num;
+                        clearInterval(interval);
+                    }
+                    el.textContent = hasDot ? current.toLocaleString('it-IT') : current + suffix;
+                }, 30);
+                counterObserver.unobserve(el);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(c => counterObserver.observe(c));
+
     // FAQ Accordion
     document.querySelectorAll('.faq__q').forEach(btn => {
         btn.addEventListener('click', () => {

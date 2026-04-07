@@ -165,6 +165,23 @@ body {
     opacity: 1;
 }
 
+.hero-slide.active .hero-body h1 {
+    animation: fadeUp 0.7s ease both;
+}
+
+.hero-slide.active .hero-body p {
+    animation: fadeUp 0.7s 0.15s ease both;
+}
+
+.hero-slide.active .hero-body .btn-hero {
+    animation: fadeUp 0.7s 0.3s ease both;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 .hero-overlay {
     position: absolute; inset: 0;
     border-radius: 24px;
@@ -216,7 +233,7 @@ body {
 }
 
 .btn-hero span::after { content: ' →'; }
-.btn-hero:hover { background: #009e82; transform: translateY(-2px); }
+.btn-hero:hover { background: #009e82; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,182,149,0.3); }
 
 .hero-dots {
     position: absolute;
@@ -256,6 +273,7 @@ body {
 
 .hero-arrow:hover {
     background: rgba(255,255,255,0.3);
+    transform: translateY(-50%) scale(1.1);
 }
 
 .hero-arrow--prev { left: 24px; }
@@ -302,7 +320,7 @@ body {
     transition: all 0.35s;
 }
 
-.btn-primary:hover { background: #009e82; transform: translateY(-2px); }
+.btn-primary:hover { background: #009e82; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,182,149,0.25); }
 
 .btn-white {
     display: inline-block;
@@ -366,7 +384,7 @@ body {
     transition: transform 0.4s;
 }
 
-.s-card:hover { transform: translateY(-6px); }
+.s-card:hover { transform: translateY(-8px); box-shadow: 0 16px 40px rgba(0,182,149,0.2); }
 
 .s-card__icon {
     width: 64px;
