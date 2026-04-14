@@ -7,12 +7,17 @@
     --accent-green: #00b695;
     --dark: #0d3b36;
     --darker: #092b27;
+    /* Footer: i errët blu-cian, në të njëjtën familje me primarin, jo jeshile */
+    --footer-bg: #061c28;
+    --footer-bg-deep: #041018;
     --text: #1a2e2a;
     --muted: #5f7a75;
     --light: #f4f7f6;
     --white: #ffffff;
     --border: #dce5e3;
     --font: 'Inter', sans-serif;
+    /* Gjerësia maks. e përmbajtjes në ekrane të mëdha (më e gjerë se 1200px klasike) */
+    --layout-max: 1440px;
 }
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -26,9 +31,13 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: var(--layout-max);
     margin: 0 auto;
-    padding: 0 32px;
+    padding: 0 40px;
+}
+
+@media (max-width: 768px) {
+    .container { padding: 0 24px; }
 }
 
 /* ── Header ── */
@@ -48,9 +57,9 @@ body {
 }
 
 .header-inner {
-    max-width: 1200px;
+    max-width: var(--layout-max);
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 48px;
     min-height: 88px;
     display: flex;
     align-items: center;
@@ -1053,8 +1062,10 @@ body {
 
 /* ── Footer ── */
 .footer {
-    background: var(--darker);
+    background: linear-gradient(180deg, var(--footer-bg) 0%, var(--footer-bg-deep) 100%);
     padding: 64px 0 0;
+    border-top: 1px solid rgba(21, 209, 253, 0.08);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 .footer__grid {
@@ -1062,7 +1073,7 @@ body {
     grid-template-columns: 1.5fr 1fr 1fr;
     gap: 48px;
     padding-bottom: 48px;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(21, 209, 253, 0.1);
 }
 
 .footer__brand img {
@@ -1072,7 +1083,7 @@ body {
 
 .footer__brand p {
     font-size: 14px;
-    color: rgba(255,255,255,0.3);
+    color: rgba(200, 232, 248, 0.45);
     line-height: 1.7;
     max-width: 260px;
 }
@@ -1082,7 +1093,7 @@ body {
 .footer__col h4 {
     font-size: 11px;
     font-weight: 700;
-    color: rgba(255,255,255,0.6);
+    color: rgba(180, 228, 252, 0.65);
     letter-spacing: 2px;
     text-transform: uppercase;
     margin-bottom: 4px;
@@ -1090,7 +1101,7 @@ body {
 
 .footer__col a {
     font-size: 14px;
-    color: rgba(255,255,255,0.3);
+    color: rgba(200, 235, 250, 0.5);
     text-decoration: none;
     transition: color 0.3s;
 }
@@ -1104,7 +1115,7 @@ body {
 
 .footer__bar p {
     font-size: 12px;
-    color: rgba(255,255,255,0.15);
+    color: rgba(160, 210, 235, 0.35);
 }
 
 @media (max-width: 768px) {
