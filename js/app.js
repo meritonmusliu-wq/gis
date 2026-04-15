@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     start();
 
     // Scroll Animations
-    const animEls = document.querySelectorAll('.brand-intro, .s-header, .s-card, .s-cards__footer, .about__img, .about__text, .how__header, .how__step, .stats__item, .location__card, .process-header, .step, .services-intro, .service-row, .intro-grid, .cta-banner__inner');
+    const animEls = document.querySelectorAll('.brand-intro, .s-header, .s-card, .s-cards__footer, .about__img, .about__text, .why__title, .why__item, .how__header, .how__step, .stats__item, .location__card, .faq__grid, .process-header, .step, .services-intro, .service-row, .intro-grid, .cta-banner__inner');
 
     animEls.forEach((el, i) => {
         el.style.opacity = '0';
