@@ -392,7 +392,7 @@ body {
 
 /* ── Brand intro (stil i pastër, si dizajni i ri) ── */
 .brand-intro {
-    padding: 96px 0 108px;
+    padding: 100px 0 104px;
 }
 
 .brand-intro__grid {
@@ -404,8 +404,9 @@ body {
 
 .brand-intro__img img {
     width: 100%;
-    border-radius: 20px;
+    border-radius: var(--radius-lg);
     display: block;
+    box-shadow: var(--shadow-soft);
 }
 
 .brand-intro__col {
@@ -609,7 +610,7 @@ body {
 
 /* ── Services Header ── */
 .s-header {
-    padding: 110px 0 44px;
+    padding: 104px 0 48px;
 }
 
 .s-header__top {
@@ -642,7 +643,7 @@ body {
 
 /* ── Service Cards ── */
 .s-cards {
-    padding: 0 0 112px;
+    padding: 0 0 104px;
 }
 
 .s-cards__grid {
@@ -659,7 +660,7 @@ body {
 .s-card {
     position: relative;
     background: linear-gradient(165deg, rgba(255, 255, 255, 0.12) 0%, transparent 42%), var(--primary-tint);
-    border-radius: 24px;
+    border-radius: var(--radius-lg);
     padding: 44px 32px;
     color: #fff;
     box-shadow: var(--shadow-soft), 0 1px 0 rgba(255, 255, 255, 0.12) inset;
@@ -716,7 +717,7 @@ body {
 
 /* ── Why Us ── */
 .why {
-    padding: 110px 0;
+    padding: 104px 0;
 }
 
 .why__title {
@@ -790,7 +791,7 @@ body {
 
 /* ── Stats ── */
 .stats {
-    padding: 96px 0 100px;
+    padding: 100px 0 104px;
 }
 
 .stats__eyebrow {
@@ -971,7 +972,7 @@ body {
 
 /* ── About ── */
 .about {
-    padding: 110px 0;
+    padding: 104px 0;
 }
 
 .about__grid {
@@ -1011,8 +1012,9 @@ body {
 
 .about__img img {
     width: 100%;
-    border-radius: 20px;
+    border-radius: var(--radius-lg);
     display: block;
+    box-shadow: var(--shadow-soft);
 }
 
 @media (max-width: 768px) {
@@ -1070,6 +1072,7 @@ body {
     min-width: 0;
 }
 
+/* Ngjyra si titujt / teksti kryesor në faqe (--dark / --text), jo paletë veç teal */
 .testimonials__quote {
     margin: 0 0 22px;
     padding: 0;
@@ -1078,34 +1081,41 @@ body {
     font-size: clamp(17px, 2vw, 21px);
     font-weight: 700;
     line-height: 1.5;
-    color: var(--testimonial-teal);
+    color: var(--dark);
     letter-spacing: -0.02em;
 }
 
 .testimonials__name {
     font-size: 16px;
-    font-weight: 700;
-    color: var(--testimonial-teal);
+    font-weight: 600;
+    color: var(--text);
     margin: 0;
-    line-height: 1.4;
+    line-height: 1.45;
 }
 
+/* Kornizë katrore + rreth: shmang ovalin kur kolona grid është e ngushtë */
 .testimonials__figure {
     justify-self: end;
-    width: 100%;
+    width: min(280px, 100%);
     max-width: 280px;
-}
-
-.testimonials__figure img {
-    width: 100%;
     aspect-ratio: 1;
-    object-fit: cover;
-    object-position: center 22%;
+    flex-shrink: 0;
+    position: relative;
     border-radius: 50%;
-    display: block;
+    overflow: hidden;
     border: 4px solid var(--white);
     box-shadow: 0 10px 40px rgba(13, 74, 71, 0.12);
     background: #e8eceb;
+}
+
+.testimonials__figure img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 22%;
+    display: block;
 }
 
 .testimonials__arrow {
@@ -1115,7 +1125,7 @@ body {
     border: none;
     border-radius: 50%;
     background: transparent;
-    color: var(--testimonial-teal);
+    color: var(--primary);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -1124,8 +1134,8 @@ body {
 }
 
 .testimonials__arrow:hover {
-    color: #0a3836;
-    background: rgba(13, 74, 71, 0.06);
+    color: var(--primary-hover);
+    background: rgba(21, 209, 253, 0.12);
 }
 
 .testimonials__arrow:focus-visible {
@@ -1146,13 +1156,13 @@ body {
     padding: 0;
     border: none;
     border-radius: 50%;
-    background: rgba(13, 74, 71, 0.2);
+    background: rgba(21, 209, 253, 0.28);
     cursor: pointer;
     transition: background 0.25s ease, transform 0.2s ease;
 }
 
 .testimonials__dot.is-active {
-    background: var(--testimonial-teal);
+    background: var(--primary);
     transform: scale(1.15);
 }
 
@@ -1190,15 +1200,15 @@ body {
 
 /* ── How It Works ── */
 .how {
-    padding: 110px 0;
+    padding: 104px 0;
 }
 
 .how__header {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    gap: 40px;
-    margin-bottom: 56px;
+    gap: clamp(28px, 4vw, 48px);
+    margin-bottom: 60px;
 }
 
 .how__header h2 {
@@ -1232,17 +1242,23 @@ body {
     padding-top: 8px;
 }
 
-/* vijë horizontale timeline (desktop) */
+/* vijë horizontale timeline (desktop) — në qendër midis numrave dhe kartave */
 .how__steps--four::before {
     content: '';
     position: absolute;
-    top: 52px;
-    left: 6%;
-    right: 6%;
-    height: 3px;
-    border-radius: 3px;
-    background: linear-gradient(90deg, var(--primary) 0%, rgba(15, 23, 42, 0.55) 100%);
-    opacity: 0.9;
+    top: 48px;
+    left: 8%;
+    right: 8%;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(
+        90deg,
+        rgba(21, 209, 253, 0.35) 0%,
+        var(--primary) 22%,
+        var(--primary) 78%,
+        rgba(21, 209, 253, 0.35) 100%
+    );
+    opacity: 0.85;
     z-index: 0;
     pointer-events: none;
 }
@@ -1308,7 +1324,7 @@ body {
 
 /* ── CTA Banner ── */
 .cta-banner {
-    padding: 0 0 104px;
+    padding: 0 0 100px;
     background: var(--page-cream);
 }
 
@@ -1317,7 +1333,7 @@ body {
     overflow: hidden;
     background: var(--white);
     border: 1px solid var(--border);
-    border-radius: 22px;
+    border-radius: var(--radius-lg);
     padding: 48px 56px 48px 52px;
     display: flex;
     align-items: center;
@@ -1409,13 +1425,14 @@ body {
 
 /* ── Location ── */
 .location {
-    padding: 110px 0;
+    padding: 104px 0;
 }
 
 .location__card {
     background: var(--white);
     border-radius: var(--radius-lg);
     overflow: hidden;
+    border: 1px solid var(--border);
     box-shadow: var(--shadow-soft);
 }
 
@@ -1499,7 +1516,7 @@ body {
 
 /* ── FAQ (përafrim me ref: etiketë e errët, ovale vertikale, kolona të qendërsuara) ── */
 .faq {
-    padding: 120px 0 128px;
+    padding: 104px 0 112px;
 }
 
 .faq__grid {
@@ -1521,9 +1538,9 @@ body {
     border-radius: calc(var(--faq-img-w) / 2);
     overflow: hidden;
     box-shadow:
-        0 8px 36px rgba(15, 23, 42, 0.1),
+        0 12px 40px rgba(15, 23, 42, 0.08),
         0 1px 0 rgba(255, 255, 255, 0.95) inset;
-    border: 4px solid var(--white);
+    border: 1px solid var(--border);
 }
 
 .faq__img img {
@@ -1534,17 +1551,17 @@ body {
     display: block;
 }
 
-/* Tag “FAQ” si në SC2: sans, i errët, jo cyan */
+/* Tag FAQ në linjë me seksionet e tjera (cyan) */
 .faq__content .tag {
-    color: var(--dark);
-    margin-bottom: 18px;
+    color: var(--primary);
+    margin-bottom: 14px;
 }
 
 .faq__content h2 {
     font-size: clamp(28px, 3.2vw, 38px);
     font-weight: 700;
     color: var(--dark);
-    margin-bottom: 36px;
+    margin-bottom: 40px;
     line-height: 1.18;
     letter-spacing: -0.03em;
     font-style: normal;
@@ -1564,7 +1581,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 0;
+    padding: 26px 0;
     background: none;
     border: none;
     font-size: 15px;
@@ -1620,66 +1637,129 @@ body {
     .faq__content h2 { font-size: 28px; margin-bottom: 28px; }
 }
 
-/* ── Footer ── */
+/* ── Footer (layout si ref: qoshe sipër, logo + dy kolona, bar poshtë) ── */
 .footer {
+    margin-top: 8px;
     background: linear-gradient(180deg, var(--footer-bg) 0%, var(--footer-bg-deep) 100%);
-    padding: 64px 0 0;
-    border-top: 1px solid rgba(21, 209, 253, 0.08);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    border-radius: 28px 28px 0 0;
+    padding: 56px 0 0;
+    border-top: 1px solid rgba(21, 209, 253, 0.1);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    overflow: hidden;
 }
 
-.footer__grid {
+.footer__top {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr;
-    gap: 48px;
-    padding-bottom: 48px;
-    border-bottom: 1px solid rgba(21, 209, 253, 0.1);
+    grid-template-columns: minmax(200px, 1.4fr) 1fr 1fr;
+    gap: clamp(32px, 5vw, 56px);
+    align-items: start;
+    padding-bottom: 44px;
+    border-bottom: 1px solid rgba(21, 209, 253, 0.12);
 }
 
 .footer__brand img {
-    height: 40px;
-    margin-bottom: 16px;
+    height: 44px;
+    width: auto;
+    margin-bottom: 14px;
+    display: block;
 }
 
 .footer__brand p {
     font-size: 14px;
-    color: rgba(200, 232, 248, 0.45);
-    line-height: 1.7;
-    max-width: 260px;
+    color: rgba(200, 232, 248, 0.5);
+    line-height: 1.65;
+    max-width: 300px;
+    margin-bottom: 18px;
 }
 
-.footer__col { display: flex; flex-direction: column; gap: 10px; }
+.footer__menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+}
+
+.footer__menu a {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(200, 235, 250, 0.55);
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.footer__menu a:hover {
+    color: var(--primary);
+}
+
+.footer__col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
 
 .footer__col h4 {
-    font-size: 11px;
-    font-weight: 700;
-    color: rgba(180, 228, 252, 0.65);
-    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: 800;
+    font-family: var(--font);
+    color: rgba(255, 255, 255, 0.88);
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
 }
 
 .footer__col a {
     font-size: 14px;
-    color: rgba(200, 235, 250, 0.5);
+    color: rgba(200, 235, 250, 0.62);
     text-decoration: none;
-    transition: color 0.3s;
+    line-height: 1.55;
+    transition: color 0.25s ease;
 }
 
-.footer__col a:hover { color: var(--primary); }
+.footer__col a:hover {
+    color: var(--primary);
+}
 
 .footer__bar {
-    padding: 20px 0;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 22px 0 32px;
 }
 
-.footer__bar p {
+.footer__copy {
     font-size: 12px;
-    color: rgba(160, 210, 235, 0.35);
+    color: rgba(160, 210, 235, 0.4);
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .footer__top {
+        grid-template-columns: 1fr 1fr;
+    }
+    .footer__brand {
+        grid-column: 1 / -1;
+    }
 }
 
 @media (max-width: 768px) {
-    .footer__grid { grid-template-columns: 1fr; gap: 32px; }
+    .footer {
+        border-radius: 20px 20px 0 0;
+        padding-top: 40px;
+    }
+    .footer__top {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding-bottom: 32px;
+    }
+    .footer__brand {
+        grid-column: auto;
+    }
+    .footer__bar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-bottom: 28px;
+    }
 }
 
 /* ── Cookie ── */
