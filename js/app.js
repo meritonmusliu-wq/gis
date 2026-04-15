@@ -62,8 +62,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     start();
 
+    // Testimonials slider
+    const ttSlides = document.querySelectorAll('.testimonials__slide');
+    const ttDots = document.querySelectorAll('.testimonials__dot');
+    const ttPrev = document.getElementById('testimonialPrev');
+    const ttNext = document.getElementById('testimonialNext');
+    if (ttSlides.length && ttPrev && ttNext) {
+        let tIdx = 0;
+        function goTestimonial(next) {
+            ttSlides[tIdx].classList.remove('is-active');
+            ttDots[tIdx]?.classList.remove('is-active');
+            ttDots[tIdx]?.removeAttribute('aria-current');
+            tIdx = (next + ttSlides.length) % ttSlides.length;
+            ttSlides[tIdx].classList.add('is-active');
+            ttDots[tIdx]?.classList.add('is-active');
+            ttDots[tIdx]?.setAttribute('aria-current', 'true');
+        }
+        ttPrev.addEventListener('click', () => goTestimonial(tIdx - 1));
+        ttNext.addEventListener('click', () => goTestimonial(tIdx + 1));
+        ttDots.forEach((d, i) => {
+            d.addEventListener('click', () => goTestimonial(i));
+        });
+    }
+
     // Scroll Animations
-    const animEls = document.querySelectorAll('.brand-intro, .s-header, .s-card, .s-cards__footer, .about__img, .about__text, .why__title, .why__item, .how__header, .how__step, .stats__item, .location__card, .faq__grid, .process-header, .step, .services-intro, .service-row, .intro-grid, .cta-banner__inner');
+    const animEls = document.querySelectorAll('.brand-intro, .testimonials__center, .s-header, .s-card, .s-cards__footer, .about__img, .about__text, .why__title, .why__item, .how__header, .how__step, .stats__item, .location__card, .faq__grid, .process-header, .step, .services-intro, .service-row, .intro-grid, .cta-banner__inner');
 
     animEls.forEach((el, i) => {
         el.style.opacity = '0';

@@ -6,7 +6,7 @@
     <title>GIS Centro Fresaggio | Centro fresaggio dentale a Lecce</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -90,14 +90,22 @@
     <!-- Intro (come da sito ufficiale) -->
     <section class="brand-intro section--cream">
         <div class="container">
-            <h2 class="brand-intro__title">Passione e innovazione prendono forma</h2>
-            <div class="brand-intro__text">
-                <p>Con grande entusiasmo annunciamo la nascita di <strong>GIS Centro Fresaggio</strong>, un progetto che nasce da passione, impegno e dalla voglia di innovare.</p>
-                <p>L'esperienza di <strong>Centro Fresaggio Pilota</strong> si intreccia con questa nuova realtà, dando vita a un percorso che unisce competenze, visione e qualità al servizio dei nostri Clienti.</p>
-                <p>Seguiteci per scoprire tutte le novità, le promozioni esclusive e per accompagnarci in questo nuovo cammino di crescita.</p>
-                <p><strong>Un nuovo percorso è appena iniziato.</strong></p>
+            <div class="brand-intro__grid">
+                <div class="brand-intro__img">
+                    <img src="images/hero2.png" alt="GIS Centro Fresaggio">
+                </div>
+                <div class="brand-intro__col">
+                    <p class="tag">IL NUOVO PROGETTO</p>
+                    <h2 class="brand-intro__title">Passione e innovazione prendono forma</h2>
+                    <div class="brand-intro__text">
+                        <p>Con grande entusiasmo annunciamo la nascita di <strong>GIS Centro Fresaggio</strong>, un progetto che nasce da passione, impegno e dalla voglia di innovare.</p>
+                        <p>L'esperienza di <strong>Centro Fresaggio Pilota</strong> si intreccia con questa nuova realtà, dando vita a un percorso che unisce competenze, visione e qualità al servizio dei nostri Clienti.</p>
+                        <p>Seguiteci per scoprire tutte le novità, le promozioni esclusive e per accompagnarci in questo nuovo cammino di crescita.</p>
+                        <p><strong>Un nuovo percorso è appena iniziato.</strong></p>
+                    </div>
+                    <a href="https://www.giscentrofresaggio.com/" class="btn-primary" target="_blank" rel="noopener">Esplora il nuovo sito</a>
+                </div>
             </div>
-            <a href="https://www.giscentrofresaggio.com/" class="btn-primary" target="_blank" rel="noopener">Esplora il nuovo sito</a>
         </div>
     </section>
 
@@ -116,6 +124,60 @@
                     <img src="images/chi-siamo.png" alt="Il nostro team">
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Testimonianze -->
+    <section class="testimonials" id="testimonianze" aria-label="Testimonianze dei clienti">
+        <div class="testimonials__shell">
+            <button type="button" class="testimonials__arrow testimonials__arrow--prev" id="testimonialPrev" aria-label="Testimonianza precedente">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="container testimonials__center">
+                <div class="testimonials__viewport" id="testimonialSlider">
+                    <article class="testimonials__slide is-active" data-index="0">
+                        <div class="testimonials__grid">
+                            <div class="testimonials__copy">
+                                <blockquote class="testimonials__quote">Mi sento sicuro perché le lavorazioni sono di alta qualità e durature, fondamentale per i miei pazienti. So con certezza che è il laboratorio che può soddisfare con precisione le mie richieste specifiche.</blockquote>
+                                <p class="testimonials__name">Dr. Marco Santoro — Odontoiatra</p>
+                            </div>
+                            <div class="testimonials__figure">
+                                <img src="images/testimonials/client-1.png" alt="Ritratto di Dr. Marco Santoro" width="400" height="400" loading="eager" decoding="async">
+                            </div>
+                        </div>
+                    </article>
+                    <article class="testimonials__slide" data-index="1">
+                        <div class="testimonials__grid">
+                            <div class="testimonials__copy">
+                                <blockquote class="testimonials__quote">Tempi rispettati, comunicazione chiara e supporto in ogni fase. Il fresaggio digitale è sempre conforme ai file e alle indicazioni che inviamo: un partner su cui contare ogni giorno.</blockquote>
+                                <p class="testimonials__name">Laura Bianchi — Tecnico di laboratorio</p>
+                            </div>
+                            <div class="testimonials__figure">
+                                <img src="images/testimonials/client-2.png" alt="Ritratto di Laura Bianchi" width="400" height="400" loading="lazy" decoding="async">
+                            </div>
+                        </div>
+                    </article>
+                    <article class="testimonials__slide" data-index="2">
+                        <div class="testimonials__grid">
+                            <div class="testimonials__copy">
+                                <blockquote class="testimonials__quote">Abbiamo integrato GIS nei nostri flussi CAD/CAM e la qualità delle strutture è costante. Il team risponde in tempi brevi e la tracciabilità del caso è sempre sotto controllo.</blockquote>
+                                <p class="testimonials__name">Giuseppe Romano — Responsabile produzione</p>
+                            </div>
+                            <div class="testimonials__figure">
+                                <img src="images/testimonials/client-3.png" alt="Ritratto di Giuseppe Romano" width="400" height="400" loading="lazy" decoding="async">
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="testimonials__dots" role="tablist" aria-label="Seleziona testimonianza">
+                    <button type="button" class="testimonials__dot is-active" data-index="0" aria-label="Testimonianza 1 di 3" aria-current="true"></button>
+                    <button type="button" class="testimonials__dot" data-index="1" aria-label="Testimonianza 2 di 3"></button>
+                    <button type="button" class="testimonials__dot" data-index="2" aria-label="Testimonianza 3 di 3"></button>
+                </div>
+            </div>
+            <button type="button" class="testimonials__arrow testimonials__arrow--next" id="testimonialNext" aria-label="Testimonianza successiva">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 6 15 12 9 18"/></svg>
+            </button>
         </div>
     </section>
 
@@ -265,17 +327,30 @@
     </section>
 
     <!-- Impegni (come da sito: dopo il processo) -->
-    <section class="stats section--cream">
+    <section class="stats section--cream" aria-label="Impegni e standard di servizio">
         <div class="container">
+            <p class="tag stats__eyebrow">I NOSTRI STANDARD</p>
             <div class="stats__grid">
                 <div class="stats__item">
+                    <div class="stats__icon" aria-hidden="true">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                    </div>
                     <p class="stats__highlight">Consegna in 24/48 ore</p>
+                    <p class="stats__hint">Tempi rapidi e tracciabili</p>
                 </div>
                 <div class="stats__item">
+                    <div class="stats__icon" aria-hidden="true">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    </div>
                     <p class="stats__highlight">Supporto eccellente</p>
+                    <p class="stats__hint">Assistenza dedicata al laboratorio</p>
                 </div>
                 <div class="stats__item">
+                    <div class="stats__icon" aria-hidden="true">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
                     <p class="stats__highlight">Lavori certificati</p>
+                    <p class="stats__hint">Qualità controllata e documentata</p>
                 </div>
             </div>
         </div>
@@ -285,7 +360,8 @@
     <section class="cta-banner">
         <div class="container">
             <div class="cta-banner__inner">
-                <div>
+                <div class="cta-banner__text">
+                    <p class="tag cta-banner__tag">CONTATTI</p>
                     <h2>Restiamo in contatto</h2>
                     <p>Scopri il nostro store e tutte le soluzioni per il tuo laboratorio odontotecnico.</p>
                 </div>
