@@ -1,9 +1,27 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#faf9f6" id="themeColorMeta">
     <title>GIS Centro Fresaggio | Centro fresaggio dentale a Lecce</title>
+    <script>
+    (function () {
+        var h = document.documentElement;
+        var m = document.getElementById('themeColorMeta');
+        try {
+            var t = localStorage.getItem('gis-theme');
+            /* Parazgjedhje: gjithmonë light (për dark përdor butonin ose ruaj zgjedhjen). */
+            if (t !== 'light' && t !== 'dark') {
+                t = 'light';
+            }
+            h.setAttribute('data-theme', t);
+            if (m) m.setAttribute('content', t === 'dark' ? '#0d1117' : '#faf9f6');
+        } catch (e) {
+            h.setAttribute('data-theme', 'light');
+        }
+    })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
@@ -21,9 +39,15 @@
                 <a href="#chi-siamo">Chi siamo</a>
                 <a href="#contatti">Contatti</a>
             </nav>
-            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
-                <span></span><span></span><span></span>
-            </button>
+            <div class="header-tools">
+                <button type="button" class="theme-toggle" id="themeToggle" aria-label="Attiva tema scuro" title="Passa tra tema chiaro e scuro">
+                    <svg class="theme-toggle__icon theme-toggle__icon--moon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="theme-toggle__icon theme-toggle__icon--sun" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+                </button>
+                <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
         </div>
     </header>
 

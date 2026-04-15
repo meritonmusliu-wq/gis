@@ -1,4 +1,37 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const themeKey = 'gis-theme';
+    const themeBtn = document.getElementById('themeToggle');
+    const themeMeta = document.getElementById('themeColorMeta');
+
+    function currentTheme() {
+        return document.documentElement.getAttribute('data-theme') || 'light';
+    }
+
+    function setTheme(t) {
+        if (t !== 'light' && t !== 'dark') return;
+        document.documentElement.setAttribute('data-theme', t);
+        try {
+            localStorage.setItem(themeKey, t);
+        } catch (e) { /* ignore */ }
+        if (themeMeta) {
+            themeMeta.setAttribute('content', t === 'dark' ? '#0d1117' : '#faf9f6');
+        }
+        if (themeBtn) {
+            themeBtn.setAttribute('aria-pressed', t === 'dark' ? 'true' : 'false');
+            themeBtn.setAttribute(
+                'aria-label',
+                t === 'dark' ? 'Attiva tema chiaro' : 'Attiva tema scuro'
+            );
+        }
+    }
+
+    if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+            setTheme(currentTheme() === 'dark' ? 'light' : 'dark');
+        });
+        setTheme(currentTheme());
+    }
+
     const toggle = document.getElementById('menuToggle');
     const nav = document.getElementById('navMobile');
     const overlay = document.getElementById('menuOverlay');
