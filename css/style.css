@@ -24,6 +24,9 @@
     --radius-md: 16px;
     --radius-lg: 20px;
     --shadow-soft: 0 4px 24px rgba(15, 23, 42, 0.06);
+    /* Ritëm leximi + ajër midis seksioneve (përmirësime të vogla globale) */
+    --body-size: 17px;
+    --section-pad-y: 112px;
 }
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -31,9 +34,10 @@ html { scroll-behavior: smooth; }
 
 body {
     font-family: var(--font);
+    font-size: var(--body-size);
     color: var(--text);
     background: var(--page-cream);
-    line-height: 1.65;
+    line-height: 1.68;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -70,11 +74,11 @@ body {
 .container {
     max-width: var(--layout-max);
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 44px;
 }
 
 @media (max-width: 768px) {
-    .container { padding: 0 24px; }
+    .container { padding: 0 28px; }
 }
 
 /* ── Header ── */
@@ -96,7 +100,7 @@ body {
 .header-inner {
     max-width: var(--layout-max);
     margin: 0 auto;
-    padding: 0 48px;
+    padding: 0 44px;
     min-height: 88px;
     display: flex;
     align-items: center;
@@ -115,7 +119,7 @@ body {
 }
 
 .nav-desktop a {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 500;
     color: var(--muted);
     text-decoration: none;
@@ -370,7 +374,7 @@ body {
 .hero-count {
     position: absolute;
     bottom: 36px; right: 80px;
-    font-size: 13px;
+    font-size: 14px;
     color: rgba(255,255,255,0.4);
     z-index: 10;
     letter-spacing: 2px;
@@ -387,12 +391,12 @@ body {
     .hero-dots { left: 24px; }
     .hero-count { right: 24px; }
     .btn-primary,
-    .btn-hero { padding: 13px 28px; font-size: 13px; }
+    .btn-hero { padding: 14px 28px; font-size: 14px; }
 }
 
 /* ── Brand intro (stil i pastër, si dizajni i ri) ── */
 .brand-intro {
-    padding: 100px 0 104px;
+    padding: 108px 0 112px;
 }
 
 .brand-intro__grid {
@@ -439,7 +443,7 @@ body {
     font-size: 17px;
     color: var(--muted);
     line-height: 1.75;
-    margin: 0 0 22px;
+    margin: 0 0 24px;
     font-weight: 400;
 }
 
@@ -471,7 +475,7 @@ body {
 
 @media (max-width: 768px) {
     .brand-intro {
-        padding: 64px 0 80px;
+        padding: 72px 0 88px;
     }
     .brand-intro__grid {
         grid-template-columns: 1fr;
@@ -493,12 +497,12 @@ body {
 
 /* ── Tag ── */
 .tag {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 800;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--primary);
-    margin-bottom: 14px;
+    margin-bottom: 16px;
 }
 
 /* ── Buttons (pill blu + ›; pa shigjetë: footer shërbimesh, intro, chi siamo, dual-cta) ── */
@@ -511,7 +515,7 @@ body {
     padding: 15px 36px;
     background: var(--primary);
     color: #fff;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
     text-decoration: none;
     border-radius: 999px;
@@ -585,7 +589,7 @@ body {
     box-sizing: border-box;
     background: var(--white);
     color: var(--dark);
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 700;
     text-decoration: none;
     border-radius: 999px;
@@ -598,19 +602,19 @@ body {
 .cta-banner__inner .btn-white {
     flex-shrink: 0;
     align-self: center;
-    background: var(--dark);
+    background: var(--primary);
     color: var(--white);
-    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.2);
+    box-shadow: 0 4px 16px rgba(21, 209, 253, 0.3);
 }
 
 .cta-banner__inner .btn-white:hover {
-    background: #1e293b;
-    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.28);
+    background: var(--primary-hover);
+    box-shadow: 0 8px 24px rgba(21, 209, 253, 0.4);
 }
 
 /* ── Services Header ── */
 .s-header {
-    padding: 104px 0 48px;
+    padding: var(--section-pad-y) 0 52px;
 }
 
 .s-header__top {
@@ -643,7 +647,7 @@ body {
 
 /* ── Service Cards ── */
 .s-cards {
-    padding: 0 0 104px;
+    padding: 0 0 var(--section-pad-y);
 }
 
 .s-cards__grid {
@@ -700,9 +704,9 @@ body {
 }
 
 .s-card p {
-    font-size: 15px;
+    font-size: 16px;
     color: rgba(255,255,255,0.75);
-    line-height: 1.7;
+    line-height: 1.72;
 }
 
 @media (max-width: 1100px) {
@@ -717,7 +721,7 @@ body {
 
 /* ── Why Us ── */
 .why {
-    padding: 104px 0;
+    padding: var(--section-pad-y) 0;
 }
 
 .why__title {
@@ -780,9 +784,9 @@ body {
 }
 
 .why__item p {
-    font-size: 14px;
+    font-size: 15px;
     color: var(--muted);
-    line-height: 1.6;
+    line-height: 1.65;
 }
 
 @media (max-width: 768px) {
@@ -791,7 +795,7 @@ body {
 
 /* ── Stats ── */
 .stats {
-    padding: 100px 0 104px;
+    padding: 108px 0 112px;
 }
 
 .stats__eyebrow {
@@ -819,7 +823,7 @@ body {
 }
 
 .stats__hint {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 500;
     color: var(--muted);
     line-height: 1.45;
@@ -972,7 +976,7 @@ body {
 
 /* ── About ── */
 .about {
-    padding: 104px 0;
+    padding: var(--section-pad-y) 0;
 }
 
 .about__grid {
@@ -992,16 +996,16 @@ body {
 }
 
 .about__text p {
-    font-size: 15px;
+    font-size: 16px;
     color: var(--muted);
     line-height: 1.8;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
 }
 
 /* .tag është <p> — rivendos si seksionet e tjera (cyan), jo si paragraf */
 .about__text .tag {
     color: var(--primary);
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 800;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -1024,7 +1028,7 @@ body {
 
 /* ── Testimonianze (slider) ── */
 .testimonials {
-    padding: 96px 0 100px;
+    padding: 104px 0 108px;
     background: var(--testimonial-cream);
 }
 
@@ -1074,11 +1078,11 @@ body {
 
 /* Ngjyra si titujt / teksti kryesor në faqe (--dark / --text), jo paletë veç teal */
 .testimonials__quote {
-    margin: 0 0 22px;
+    margin: 0 0 24px;
     padding: 0;
     border: none;
     font-family: var(--font);
-    font-size: clamp(17px, 2vw, 21px);
+    font-size: clamp(18px, 2vw, 22px);
     font-weight: 700;
     line-height: 1.5;
     color: var(--dark);
@@ -1200,7 +1204,7 @@ body {
 
 /* ── How It Works ── */
 .how {
-    padding: 104px 0;
+    padding: var(--section-pad-y) 0;
 }
 
 .how__header {
@@ -1208,7 +1212,7 @@ body {
     justify-content: space-between;
     align-items: flex-end;
     gap: clamp(28px, 4vw, 48px);
-    margin-bottom: 60px;
+    margin-bottom: 64px;
 }
 
 .how__header h2 {
@@ -1268,7 +1272,7 @@ body {
     z-index: 1;
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
-    padding: 36px 28px;
+    padding: 40px 30px;
     background: var(--white);
     box-shadow: var(--shadow-soft);
     transition: all 0.4s;
@@ -1303,9 +1307,9 @@ body {
 }
 
 .how__step p {
-    font-size: 14px;
+    font-size: 15px;
     color: var(--muted);
-    line-height: 1.7;
+    line-height: 1.72;
 }
 
 @media (max-width: 1100px) {
@@ -1322,38 +1326,30 @@ body {
     .how__header h2 { font-size: 28px; }
 }
 
-/* ── CTA Banner ── */
+/* ── CTA Banner (full-bleed: ngjyra te section, përmbajtja në .container) ── */
 .cta-banner {
-    padding: 0 0 100px;
-    background: var(--page-cream);
+    padding: clamp(44px, 5vw, 64px) 0 108px;
+    background: linear-gradient(
+        118deg,
+        rgba(21, 209, 253, 0.30) 0%,
+        rgba(21, 209, 253, 0.16) 38%,
+        var(--light) 72%,
+        var(--page-cream) 100%
+    );
 }
 
 .cta-banner__inner {
     position: relative;
-    overflow: hidden;
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 48px 56px 48px 52px;
+    overflow: visible;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 14px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 48px;
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 12px 40px rgba(15, 23, 42, 0.06);
-}
-
-/* Wash ciano a sinistra, come il resto del brand */
-.cta-banner__inner::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        115deg,
-        rgba(21, 209, 253, 0.14) 0%,
-        rgba(21, 209, 253, 0.04) 42%,
-        transparent 68%
-    );
-    pointer-events: none;
+    gap: clamp(32px, 4vw, 56px);
+    box-shadow: none;
 }
 
 .cta-banner__text {
@@ -1377,30 +1373,35 @@ body {
     font-size: clamp(26px, 3vw, 34px);
     font-weight: 600;
     color: var(--dark);
-    margin-bottom: 12px;
+    margin-bottom: 14px;
     letter-spacing: -0.03em;
     line-height: 1.2;
 }
 
 .cta-banner__inner p {
-    font-size: 15px;
+    font-size: 16px;
     color: var(--muted);
     font-weight: 500;
-    line-height: 1.65;
+    line-height: 1.68;
     max-width: 480px;
     margin: 0;
 }
 
 @media (max-width: 768px) {
     .cta-banner {
-        padding: 0 0 80px;
+        padding: 40px 0 88px;
+        background: linear-gradient(
+            165deg,
+            rgba(21, 209, 253, 0.27) 0%,
+            rgba(21, 209, 253, 0.14) 50%,
+            var(--page-cream) 100%
+        );
     }
     .cta-banner__inner {
         flex-direction: column;
         text-align: center;
-        padding: 40px 28px 44px;
+        padding: 8px 0 0;
         align-items: center;
-        border-radius: var(--radius-lg);
     }
 
     .cta-banner__text {
@@ -1425,7 +1426,7 @@ body {
 
 /* ── Location ── */
 .location {
-    padding: 104px 0;
+    padding: var(--section-pad-y) 0;
 }
 
 .location__card {
@@ -1453,9 +1454,9 @@ body {
 .location__map:hover iframe { filter: grayscale(0); }
 
 .location__info {
-    padding: 48px;
+    padding: 52px;
     display: flex;
-    gap: 48px;
+    gap: 52px;
     align-items: flex-start;
 }
 
@@ -1486,9 +1487,9 @@ body {
 }
 
 .location__detail p {
-    font-size: 14px;
+    font-size: 15px;
     color: var(--muted);
-    line-height: 1.6;
+    line-height: 1.65;
 }
 
 .location__detail a {
@@ -1505,8 +1506,8 @@ body {
 @media (max-width: 768px) {
     .location__info {
         flex-direction: column;
-        gap: 24px;
-        padding: 32px 24px;
+        gap: 28px;
+        padding: 36px 28px;
     }
     .location__details {
         flex-direction: column;
@@ -1516,7 +1517,7 @@ body {
 
 /* ── FAQ (përafrim me ref: etiketë e errët, ovale vertikale, kolona të qendërsuara) ── */
 .faq {
-    padding: 104px 0 112px;
+    padding: var(--section-pad-y) 0 120px;
 }
 
 .faq__grid {
@@ -1581,10 +1582,10 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 26px 0;
+    padding: 28px 0;
     background: none;
     border: none;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 700;
     color: var(--dark);
     cursor: pointer;
@@ -1621,30 +1622,37 @@ body {
 
 .faq__item.open .faq__a {
     max-height: 720px;
-    padding-bottom: 22px;
+    padding-bottom: 24px;
 }
 
 .faq__a p {
-    font-size: 14px;
+    font-size: 15px;
     color: var(--muted);
     line-height: 1.7;
 }
 
 @media (max-width: 768px) {
-    .faq { padding: 80px 0 96px; }
+    .faq { padding: 88px 0 104px; }
     .faq__grid { grid-template-columns: 1fr; align-items: start; gap: 40px; }
     .faq__img { display: none; }
     .faq__content h2 { font-size: 28px; margin-bottom: 28px; }
 }
 
-/* ── Footer (layout si ref: qoshe sipër, logo + dy kolona, bar poshtë) ── */
+/* ── Footer: i njëjti “stil ngjyrash” si CTA Contatti, gradient i kthyer (cream majtas → cyan djathtas) ── */
 .footer {
     margin-top: 8px;
-    background: linear-gradient(180deg, var(--footer-bg) 0%, var(--footer-bg-deep) 100%);
+    /* ~20% më i errët: bazë e zbehur + cyan pak më i fortë */
+    background: linear-gradient(
+        118deg,
+        color-mix(in srgb, var(--page-cream) 88%, black) 0%,
+        color-mix(in srgb, var(--light) 88%, black) 28%,
+        rgba(21, 209, 253, 0.19) 62%,
+        rgba(21, 209, 253, 0.36) 100%
+    );
     border-radius: 28px 28px 0 0;
     padding: 56px 0 0;
-    border-top: 1px solid rgba(21, 209, 253, 0.1);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    border-top: 1px solid rgba(21, 209, 253, 0.29);
+    box-shadow: 0 -6px 32px rgba(15, 23, 42, 0.11);
     overflow: hidden;
 }
 
@@ -1661,7 +1669,7 @@ body {
     gap: clamp(32px, 5vw, 56px);
     align-items: start;
     padding-bottom: 44px;
-    border-bottom: 1px solid rgba(21, 209, 253, 0.12);
+    border-bottom: 1px solid color-mix(in srgb, var(--border) 82%, var(--dark));
 }
 
 .footer__brand img {
@@ -1672,9 +1680,9 @@ body {
 }
 
 .footer__brand p {
-    font-size: 14px;
-    color: rgba(200, 232, 248, 0.5);
-    line-height: 1.65;
+    font-size: 15px;
+    color: color-mix(in srgb, var(--muted) 82%, var(--dark));
+    line-height: 1.68;
     max-width: 300px;
     margin-bottom: 18px;
 }
@@ -1685,11 +1693,39 @@ body {
     gap: 10px 18px;
 }
 
-.footer__menu a {
-    font-size: 13px;
-    font-weight: 600;
-    color: rgba(200, 235, 250, 0.55);
+.footer__menu a,
+.footer__col a {
+    position: relative;
+    display: inline-block;
+    align-self: flex-start;
+    padding-bottom: 3px;
     text-decoration: none;
+}
+
+.footer__menu a::after,
+.footer__col a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    border-radius: 1px;
+    background: var(--primary);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.3s ease;
+}
+
+.footer__menu a:hover::after,
+.footer__col a:hover::after {
+    transform: scaleX(1);
+}
+
+.footer__menu a {
+    font-size: 14px;
+    font-weight: 600;
+    color: color-mix(in srgb, var(--muted) 82%, var(--dark));
     transition: color 0.25s ease;
 }
 
@@ -1704,21 +1740,20 @@ body {
 }
 
 .footer__col h4 {
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 800;
     font-family: var(--font);
-    color: rgba(255, 255, 255, 0.88);
+    color: var(--dark);
     letter-spacing: 0.12em;
     text-transform: uppercase;
     margin-bottom: 2px;
 }
 
 .footer__col a {
-    font-size: 14px;
-    color: rgba(200, 235, 250, 0.62);
-    text-decoration: none;
+    font-size: 15px;
+    color: color-mix(in srgb, var(--text) 88%, var(--dark));
     line-height: 1.55;
-    transition: color 0.25s ease;
+    transition: color 0.2s ease;
 }
 
 .footer__col a:hover {
@@ -1735,8 +1770,8 @@ body {
 }
 
 .footer__copy {
-    font-size: 12px;
-    color: rgba(160, 210, 235, 0.4);
+    font-size: 13px;
+    color: color-mix(in srgb, var(--muted) 82%, var(--dark));
     margin: 0;
 }
 
@@ -1753,6 +1788,12 @@ body {
     .footer {
         border-radius: 20px 20px 0 0;
         padding-top: 40px;
+        background: linear-gradient(
+            165deg,
+            color-mix(in srgb, var(--page-cream) 88%, black) 0%,
+            color-mix(in srgb, var(--light) 88%, black) 48%,
+            rgba(21, 209, 253, 0.29) 100%
+        );
     }
     .footer__top {
         grid-template-columns: 1fr;
@@ -1795,7 +1836,7 @@ body {
     to { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
-.cookie p { font-size: 13px; color: var(--muted); line-height: 1.5; flex: 1; }
+.cookie p { font-size: 14px; color: var(--muted); line-height: 1.55; flex: 1; }
 .cookie p a { color: var(--primary); text-decoration: none; font-weight: 500; }
 
 .cookie__btns { display: flex; gap: 8px; flex-shrink: 0; }
@@ -1808,7 +1849,7 @@ body {
     padding: 0 22px;
     line-height: 1;
     border-radius: 999px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 600;
     cursor: pointer;
     font-family: var(--font);
