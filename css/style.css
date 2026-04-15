@@ -1648,6 +1648,13 @@ body {
     overflow: hidden;
 }
 
+/* Gjerësi më e madhe se pjesa tjetër e faqes */
+.footer .container {
+    max-width: min(1680px, 100%);
+    padding-left: clamp(28px, 4vw, 56px);
+    padding-right: clamp(28px, 4vw, 56px);
+}
+
 .footer__top {
     display: grid;
     grid-template-columns: minmax(200px, 1.4fr) 1fr 1fr;
@@ -1658,9 +1665,9 @@ body {
 }
 
 .footer__brand img {
-    height: 44px;
+    height: 84px;
     width: auto;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
     display: block;
 }
 
